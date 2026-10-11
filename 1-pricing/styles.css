@@ -35,20 +35,21 @@ body {
 .plans {
   display: flex;
   justify-content: space-between;
-  justify-content: center;
   align-items: stretch;
-  gap: 0;
+  gap: 24px;
   max-width: 960px;
   margin: 0 auto;
 }
 
 .plan {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 0;
-  padding: 0;
   width: 280px;
   text-align: center;
+  padding: 32px 24px;
+  border-radius: 12px;
 }
 
 .plan--featured {
@@ -64,8 +65,8 @@ body {
 .price {
   font-size: 40px;
   font-weight: 700;
-  color: #f8fafc;
   margin-bottom: 20px;
+  color: #0f172a;
 }
 
 .price span {
@@ -93,10 +94,11 @@ body {
 
 .btn {
   display: inline-block;
+  margin-top: auto;
   padding: 12px 28px;
   border-radius: 8px;
-  background: #cbd5e1;
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
+  background-color: #2563eb;
 }
