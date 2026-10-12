@@ -49,7 +49,7 @@ function render() {
     card.innerHTML = `<h3>${p.name}</h3><p class="cat">${p.category}</p><p class="price">$${p.price}</p>`
     grid.appendChild(card)
   })
-  countEl.textContent = products.length
+  countEl.textContent = items.length
 }
 
 searchInput.addEventListener('input', render)
@@ -58,5 +58,8 @@ sortSelect.addEventListener('change', render)
 
 resetBtn.addEventListener('click', () => {
   searchInput.value = ''
+  categorySelect.value = 'all'
+  sortSelect.value = 'default'
+  render()
 })
 render()
