@@ -34,11 +34,17 @@ function deleteTask(id) {
 }
 
 function clearCompleted() {
-  tasks = []
+  tasks = tasks.filter((t) => t.done === false)
   render()
 }
 
 function getVisibleTasks() {
+  if (currentFilter === 'active') {
+    return tasks.filter((t) => t.done === false)
+  }
+  if (currentFilter === 'done') {
+    return tasks.filter((t) => t.done === true)
+  }
   return tasks
 }
 
