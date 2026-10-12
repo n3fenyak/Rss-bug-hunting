@@ -76,14 +76,16 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  if ((promoInput.value = 'SALE10')) {
+  if (promoInput.value.trim() === 'SALE10') {
     discount = 0.1
+  } else {
+    discount = 0
   }
   renderCart()
 }
 
 function clearCart() {
-  cart.splice(0, 1)
+  cart = []
   renderCart()
 }
 
@@ -119,7 +121,7 @@ function renderCart() {
 
   badgeEl.textContent = cart.reduce((sum, item) => sum + item.qty, 0)
   totalEl.textContent = total
-  emptyMsg.hidden = true
+  emptyMsg.hidden = cart.length > 0
 }
 
 promoBtn.addEventListener('click', applyPromo)
