@@ -16,7 +16,7 @@ function addTask() {
     errorEl.hidden = false
     return
   }
-
+  errorEl.hidden = true
   tasks.push({ id: nextId++, text: text, done: false })
   input.value = ''
   render()
@@ -24,12 +24,12 @@ function addTask() {
 
 function toggleTask(id) {
   const task = tasks.find((t) => t.id === id)
-  task.done = true
+  task.done = !task.done
   render()
 }
 
 function deleteTask(id) {
-  tasks.filter((t) => t.id !== id)
+  tasks = tasks.filter((t) => t.id !== id)
   render()
 }
 
@@ -43,7 +43,8 @@ function getVisibleTasks() {
 }
 
 function updateCounter() {
-  counter.textContent = 'Активных задач: ' + tasks.length
+  const activeTasks = tasks.filter((t) => t.done === false)
+  counter.textContent = 'Активных задач: ' + activeTasks.length
 }
 
 function render() {
